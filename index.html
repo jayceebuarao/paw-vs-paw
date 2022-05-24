@@ -21,11 +21,21 @@
 <body class="d-flex flex-column">
     <h1 class="align-self-center">pawvspaw</h1>
     <div class="d-flex justify-content-between">
-        <div class="w-50" id="dog" style="height: 40vh;">
+        <div class="d-flex flex-column w-50">
+            <img class="img-fluid" id="dog-img" src="" alt="picture of a cute dog">
+            <div id="dog-hand"></div>
+            <div id="dog-score"></div>
         </div>
-        <div class="w-50" id="cat" style="height: 40vh;">
+        <div class="d-flex flex-column w-50">
+            <img class="img-fluid" id="cat-img" src="" alt="picture of a cute cat">
+            <div id="cat-hand"></div>
+            <div id="cat-score"></div>
         </div>
     </div>
-    <div>testing</div>
+    <div class="d-flex flex-column align-items-center" id="user-area">
+        <div id="verdict"></div>
+        <button class="btn btn-secondary btn-outline-dark" onclick="showHand()">BATTLE!!!!</button>
+        <button class="btn btn-secondary btn-outline-dark" onclick="getPetData()">NEW PETS!!!!!!!!!!!</button>
+    </div>
 </body>
 </html>
