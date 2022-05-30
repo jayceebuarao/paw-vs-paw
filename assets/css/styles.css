@@ -1,8 +1,60 @@
-body{
+body {  
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 2vw;
-    background-color: #f0a3ff;
+    animation-name: backgroundColorPalette;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 img{
-    height: 60vh;
+    object-fit: contain;
+    height: 70vh;
+    width: 100%;
 }
+
+#dog-bg, #cat-bg{
+    position: absolute;
+    filter: blur(4px);
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    border-radius: 5%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    opacity: 70%;
+}
+
+@keyframes backgroundColorPalette {
+    0% {
+        background: #ffadad;
+    }
+    14.29% {
+        background: #ffd6a5;
+    }
+    28.58% {
+        background: #fdffb6;
+    }
+    42.87% {
+        background: #caffbf;
+    }
+    57.16% {
+        background: #9bf6ff;
+    }
+    71.45% {
+        background: #a0c4ff;
+    }
+    85.74% { 
+        background: #bdb2ff;
+    }
+    100%{
+        background: #ffc6ff;
+    }
+  }

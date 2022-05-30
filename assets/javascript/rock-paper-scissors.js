@@ -21,10 +21,13 @@ function countDown(){
 
 }
 
+let catScore = 0;
+let dogScore = 0;
+
 //process players score and users scores by analyzing bet result
 function processResult(dogHand, catHand){
-    var dogScore = document.getElementById("dog-score");
-    var catScore = document.getElementById("cat-score");
+    var dogScoreDiv = document.getElementById("dog-score");
+    var catScoreDiv = document.getElementById("cat-score");
     var verdict = document.getElementById("verdict");
     if(dogHand != catHand){
         if(dogHand == "rock"){
@@ -53,6 +56,17 @@ function processResult(dogHand, catHand){
         }
     }else{
         verdict.innerHTML = "IT'S A TIE";
+    }
+
+    if (verdict.innerHTML == "CAT TEAM WINS!"){
+        catScore++;
+        catScoreDiv.innerHTML = catScore;
+        console.log("catscore: " + catScore);
+    }
+    if( verdict.innerHTML == "DOG TEAM WINS!"){
+        dogScore++;
+        dogScoreDiv.innerHTML = dogScore;
+        console. log("dogscore: " + dogScore);
     }
 }   
 
