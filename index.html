@@ -12,39 +12,70 @@
     <!-- custom css -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <!-- scripts -->
-    <script src="assets/javascript/request-api.js"></script>
     <script src="assets/javascript/rock-paper-scissors.js"></script>
+    <script src="assets/javascript/request-api.js"></script>
+
+    <meta charset="UTF-8">
 
     <title>pawvspaw</title>
 </head>
 <body>
-    <header class="d-flex flex-column align-items-center">
-        <div class="fs-1" id="verdict">Place Your Bets! And Commence the Battle!</div>
-    </header>
-    <div class="container-lg">
+    <canvas id="confetti-canvas"></canvas>
+    <!-- <header class="d-flex flex-column align-items-center border">
+        <div class="fs-1" id="verdict">   
+            Place Your Bets! And Commence the Battle!
+        </div> 
+    </header>-->
+    <div class="">
         <div class="row h-75">
             <div class="col">
-                <div>Dog Team Score: <span id="dog-score">0</span></div>
                 <div class="position-relative">
                     <div id="dog-bg"></div>
                     <img class="" id="dog-img" src="" alt="picture of a cute dog">
                 </div>
                 
             </div>
-            <div class="col-3 d-flex flex-column">
-                <div class="d-flex m-auto justify-content-center gap-5">
-                    <div class="d-inline" id="dog-hand"></div>
-                    <p>vs</p>
-                    <div class="d-inline" id="cat-hand"></div>
+            <div class="col-3 d-flex flex-column gap-2">
+                <div class="d-flex scoreboard h-25" id="verdict-board">   
+                    <p class="fs-1 p-2 m-auto" id="verdict">
+                        Place Your Bets! And Duel!
+                    </p>
                 </div>
-                <div class="d-flex flex-column gap-3" id="user-area">
-                    <button class="btn btn-dark btn-lg w-100" onclick="showHand()">DUEL</button>
-                    <button class="btn btn-secondary btn-outline-dark w-100" onclick="getPetData()">NEW CHALLENGER</button>
+                <div class="d-flex justify-content-between gap-2">
+                    <div class="d-flex justify-content-center align-items-center scoreboard p-2 w-100 gap-2" id="dog-scoreboard">     
+                        <span class="fs-3">&#128054;</span>
+                        <span class="fs-2" id="dog-score">0</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center scoreboard p-2 w-100 gap-2" id="cat-scoreboard">
+                        <span class="fs-3">&#128049;</span>
+                        <span class="fs-2" id="cat-score">0</span>
+                    </div>
+                </div>
+                <div class="d-flex h-100 border align-items-center justify-content-center">
+                    <span class="fs-big" id="dog-hand">&#128054;</span>
+                    <!-- <div class="d-inline fs-big" id="dog-hand"></div> -->
+                    <span class="fs-1 m-auto">vs</span >
+                    <span class="fs-big" id="cat-hand">&#128049;</span>
+                    <!-- <div class="d-inline fs-big" id="cat-hand"></div> -->
+                </div>
+                <div class="d-flex flex-column gap-2" id="user-area">
+                    <div class="d-flex justify-content-center align-items-center scoreboard p-2 w-100 gap-2">     
+                        <span class="fs-5">Your Bet: </span>
+                        <span class="fs-5" id="user-bet">None</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center scoreboard p-2 w-100 gap-2" id="user-board">     
+                        <span class="fs-5">Your Score: </span>
+                        <span class="fs-3" id="user-score">0</span>
+                    </div>
+                    <button class="btn btn-warning btn-lg w-100" onclick="showHand()"><span>&#x1F52A;</span>DUEL<span>&#x1F52A;</span></button>
+                    <button class="btn btn-dark w-100" onclick="getPetData()">NEW CHALLENGER</button>
                 </div>
             </div>
             <div class="col">
-                <div>Cat Team Score: <span id="cat-score">0</span></div>
                 <div class="position-relative">
                     <div id="cat-bg"></div>
                     <img class="" id="cat-img" src="" alt="picture of a cute cat">
@@ -53,11 +84,37 @@
             </div>
         </div>
     </div>
-    
-    <footer class="d-flex justify-content-between">
-        <button class="btn light">Reset Scoreboard</button>
-        <span>pawvspaw</span>
-        <button class="btn light">How to Play?</button>
+
+    <footer class="d-flex position-relative">
+        <div class="position-absolute start-0"><button class="btn" onclick="reset()">Reset Scoreboard</button></div>
+        <div class="m-auto"><span class="fs-2">&#x1F43E; pawvspaw &#x1F43E;</span></div>    
+        <div class="position-absolute end-0"><button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">How to Play?</button></div>
     </footer>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">How to Play</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="fs-2">
+                    - The goal of this game is to win by betting on the right challenger.
+                    <br>
+                    - Do this by clicking on the icon of your chosen challenger.
+                    <br>
+                    - Then battle it out by clicking on the "Duel" button. 
+                    <br>
+                    - To place new challengers, click of the "New Challengers" button.
+                </p>
+            </div>
+            <div class="modal-footer">
+                Created by Kyla Jaycee Buarao
+            </div>
+          </div>
+        </div>
+      </div>
+      
 </body>
 </html>
